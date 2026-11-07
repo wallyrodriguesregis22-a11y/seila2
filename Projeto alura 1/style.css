@@ -1,0 +1,185 @@
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f2f2;
+    color: #333;
+}
+
+/* ==============================
+   CABEÇALHO
+============================== */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+    background-color: #7e3e1c;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cabecalho h1 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cabecalho-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.cabecalho-link:hover {
+    color: #ffd1a6;
+}
+
+.cabecalho-link:focus {
+    color: #ffe8d6;
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.cabecalho-link:active {
+    color: #ffd1a6;
+}
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+============================== */
+
+main {
+    flex: 1;
+    width: 100%;
+    padding: 35px 25px;
+}
+
+/* ==============================
+   SEÇÃO DE CARTÕES
+============================== */
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* ==============================
+   CARTÕES
+============================== */
+
+.cartao {
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.cartao-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.cartao:hover .cartao-interno,
+.cartao:focus-within .cartao-interno {
+    transform: rotateY(180deg);
+}
+
+.cartao-frente,
+.cartao-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cartao-frente {
+    background-color: #fff;
+}
+
+.cartao-verso {
+    background-color: #7e3e1c;
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+.cartao-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==============================
+   RODAPÉ
+============================== */
+
+footer {
+    width: 100%;
+    background-color: #7e3e1c;
+    padding: 20px 25px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .cabecalho h1 {
+        font-size: 22px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    section {
+        gap: 20px;
+    }
+
+    .cartao {
+        width: min(100%, 300px);
+        height: 200px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}
